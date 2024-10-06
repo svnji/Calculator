@@ -11,7 +11,6 @@
 		20BB49192CAB7FC000ADD993 /* mainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BB49182CAB7FC000ADD993 /* mainViewController.swift */; };
 		20ED9B4C2CAB78790058051C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ED9B4B2CAB78790058051C /* AppDelegate.swift */; };
 		20ED9B4E2CAB78790058051C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ED9B4D2CAB78790058051C /* SceneDelegate.swift */; };
-		20ED9B502CAB78790058051C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ED9B4F2CAB78790058051C /* ViewController.swift */; };
 		20ED9B532CAB78790058051C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20ED9B512CAB78790058051C /* Main.storyboard */; };
 		20ED9B552CAB787B0058051C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20ED9B542CAB787B0058051C /* Assets.xcassets */; };
 		20ED9B582CAB787B0058051C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20ED9B562CAB787B0058051C /* LaunchScreen.storyboard */; };
@@ -23,7 +22,6 @@
 		20ED9B482CAB78790058051C /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20ED9B4B2CAB78790058051C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20ED9B4D2CAB78790058051C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		20ED9B4F2CAB78790058051C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		20ED9B522CAB78790058051C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		20ED9B542CAB787B0058051C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		20ED9B572CAB787B0058051C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -53,7 +51,6 @@
 			isa = PBXGroup;
 			children = (
 				20BB49182CAB7FC000ADD993 /* mainViewController.swift */,
-				20ED9B4F2CAB78790058051C /* ViewController.swift */,
 			);
 			path = viewControllers;
 			sourceTree = "<group>";
@@ -160,7 +157,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20ED9B502CAB78790058051C /* ViewController.swift in Sources */,
 				20BB49162CAB7F2D00ADD993 /* Borders.swift in Sources */,
 				20BB49192CAB7FC000ADD993 /* mainViewController.swift in Sources */,
 				20ED9B4C2CAB78790058051C /* AppDelegate.swift in Sources */,
@@ -316,6 +312,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DN4966W9VT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Calculator/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -323,6 +320,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -343,6 +341,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DN4966W9VT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Calculator/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -350,6 +349,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

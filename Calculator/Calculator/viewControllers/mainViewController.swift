@@ -12,7 +12,7 @@ class mainViewController: UIViewController {
     var fullOpp: String!
     var pursedOpp: String!
     var isResultShown: Bool = false
-    
+    var number: String!
     @IBOutlet weak var numberViwer: UILabel!
     
     override func viewDidLoad() {
@@ -20,6 +20,7 @@ class mainViewController: UIViewController {
         numberBeforeOpp = ""
         fullOpp = ""
         pursedOpp = ""
+        number = ""
     }
     
     func resetIfResultShown() {
@@ -30,94 +31,62 @@ class mainViewController: UIViewController {
         }
     }
     
+    func btnValues(_ number: String) {
+        if numberViwer.text == "0" {
+            numberViwer.text! = number
+        } else {
+            numberViwer.text! += number
+        }
+    }
+    
     @IBAction func btn7Tapped(_ sender: Any) {
         resetIfResultShown()
-        if numberViwer.text == "0" {
-            numberViwer.text! = "7"
-        } else {
-            numberViwer.text! += "7"
-        }
+        btnValues("7")
     }
     
     @IBAction func btn8Tapped(_ sender: Any) {
         resetIfResultShown()
-        if numberViwer.text == "0" {
-            numberViwer.text! = "8"
-        } else {
-            numberViwer.text! += "8"
-        }
+        btnValues("8")
     }
     
     @IBAction func btn9Tapped(_ sender: Any) {
         resetIfResultShown()
-        if numberViwer.text == "0" {
-            numberViwer.text! = "9"
-        } else {
-            numberViwer.text! += "9"
-        }
+        btnValues("9")
     }
     
     @IBAction func btn4Tapped(_ sender: Any) {
         resetIfResultShown()
-        if numberViwer.text == "0" {
-            numberViwer.text! = "4"
-        } else {
-            numberViwer.text! += "4"
-        }
+        btnValues("4")
     }
     
     @IBAction func btn5Tapped(_ sender: Any) {
         resetIfResultShown()
-        if numberViwer.text == "0" {
-            numberViwer.text! = "5"
-        } else {
-            numberViwer.text! += "5"
-        }
+        btnValues("5")
     }
     
     @IBAction func btn6Tapped(_ sender: Any) {
         resetIfResultShown()
-        if numberViwer.text == "0" {
-            numberViwer.text! = "6"
-        } else {
-            numberViwer.text! += "6"
-        }
+        btnValues("6")
     }
     
     @IBAction func btn1Tapped(_ sender: Any) {
         resetIfResultShown()
-        if numberViwer.text == "0" {
-            numberViwer.text! = "1"
-        } else {
-            numberViwer.text! += "1"
-        }
+        btnValues("1")
     }
     
     @IBAction func btn2Tapped(_ sender: Any) {
         resetIfResultShown()
-        if numberViwer.text == "0" {
-            numberViwer.text! = "2"
-        } else {
-            numberViwer.text! += "2"
-        }
+        btnValues("2")
     }
     
     @IBAction func btn3Tapped(_ sender: Any) {
         resetIfResultShown()
-        if numberViwer.text == "0" {
-            numberViwer.text! = "3"
-        } else {
-            numberViwer.text! += "3"
-        }
+        btnValues("3")
     }
     
     @IBAction func btn0Tapped(_ sender: Any) {
         resetIfResultShown()
-        if numberViwer.text == "0" {
-            numberViwer.text! = "0"
-        } else {
-            numberViwer.text! += "0"
-        }
+        btnValues("0")
     }
     
     @IBAction func btnDotTapped(_ sender: Any) {
