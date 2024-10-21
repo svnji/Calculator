@@ -10,19 +10,18 @@ import UIKit
 class mainViewController: UIViewController {
     var numberBeforeOpp: String!
     var fullOpp: String!
-    var pursedOpp: String!
     var isResultShown: Bool = false
-    var number: String!
+    var lastTappedNumber: String = ""
+
     @IBOutlet weak var numberViwer: UILabel!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         numberBeforeOpp = ""
         fullOpp = ""
-        pursedOpp = ""
-        number = ""
+        numberViwer.adjustsFontSizeToFitWidth = true
     }
-    
+
     func resetIfResultShown() {
         if isResultShown {
             numberViwer.text = "0"
@@ -30,110 +29,67 @@ class mainViewController: UIViewController {
             isResultShown = false
         }
     }
-    
+
     func btnValues(_ number: String) {
+        lastTappedNumber = number
         if numberViwer.text == "0" {
             numberViwer.text! = number
         } else {
             numberViwer.text! += number
         }
     }
-    
-    @IBAction func btn7Tapped(_ sender: Any) {
+
+    @IBAction func numberTapped(_ sender: UIButton) {
         resetIfResultShown()
-        btnValues("7")
+        let number = String(sender.tag)
+        btnValues(number)
     }
-    
-    @IBAction func btn8Tapped(_ sender: Any) {
-        resetIfResultShown()
-        btnValues("8")
-    }
-    
-    @IBAction func btn9Tapped(_ sender: Any) {
-        resetIfResultShown()
-        btnValues("9")
-    }
-    
-    @IBAction func btn4Tapped(_ sender: Any) {
-        resetIfResultShown()
-        btnValues("4")
-    }
-    
-    @IBAction func btn5Tapped(_ sender: Any) {
-        resetIfResultShown()
-        btnValues("5")
-    }
-    
-    @IBAction func btn6Tapped(_ sender: Any) {
-        resetIfResultShown()
-        btnValues("6")
-    }
-    
-    @IBAction func btn1Tapped(_ sender: Any) {
-        resetIfResultShown()
-        btnValues("1")
-    }
-    
-    @IBAction func btn2Tapped(_ sender: Any) {
-        resetIfResultShown()
-        btnValues("2")
-    }
-    
-    @IBAction func btn3Tapped(_ sender: Any) {
-        resetIfResultShown()
-        btnValues("3")
-    }
-    
-    @IBAction func btn0Tapped(_ sender: Any) {
-        resetIfResultShown()
-        btnValues("0")
-    }
-    
+
     @IBAction func btnDotTapped(_ sender: Any) {
         resetIfResultShown()
         if numberViwer.text?.contains(".") == false {
             numberViwer.text! += "."
         }
     }
-    
-    @IBAction func btnCleatTapped(_ sender: Any) {
+
+    @IBAction func btnClearTapped(_ sender: Any) {
         numberViwer.text = "0"
         fullOpp = ""
         isResultShown = false
     }
-    
+
+    func processOperation(_ operation: String) {
+        if numberViwer.text?.isEmpty == false {
+            numberBeforeOpp = numberViwer.text
+            fullOpp += numberBeforeOpp
+            numberViwer.text = ""
+            fullOpp += operation
+        } else if let last = fullOpp.last, "+-×÷".contains(last) {
+            fullOpp.removeLast()
+            fullOpp += operation
+        }
+    }
+
     @IBAction func divideBtnTapped(_ sender: Any) {
         resetIfResultShown()
-        numberBeforeOpp = numberViwer.text
-        fullOpp += numberBeforeOpp
-        numberViwer.text = ""
-        fullOpp += "÷"
+        processOperation("÷")
     }
-    
+
     @IBAction func multiplyBtnTapped(_ sender: Any) {
         resetIfResultShown()
-        numberBeforeOpp = numberViwer.text
-        fullOpp += numberBeforeOpp
-        numberViwer.text = ""
-        fullOpp += "×"
+        processOperation("×")
     }
-    
+
     @IBAction func minusBtnTapped(_ sender: Any) {
         resetIfResultShown()
-        numberBeforeOpp = numberViwer.text
-        fullOpp += numberBeforeOpp
-        numberViwer.text = ""
-        fullOpp += "-"
+        processOperation("-")
     }
-    
+
     @IBAction func plusBtnTapped(_ sender: Any) {
         resetIfResultShown()
-        numberBeforeOpp = numberViwer.text
-        fullOpp += numberBeforeOpp
-        numberViwer.text = ""
-        fullOpp += "+"
+        processOperation("+")
     }
-    
+
     @IBAction func backspaceTapped(_ sender: Any) {
         if var text = numberViwer.text, !text.isEmpty {
             text.removeLast()
@@ -146,35 +102,34 @@ class mainViewController: UIViewController {
     }
 
     @IBAction func equlaBtnTapped(_ sender: Any) {
-        fullOpp += numberViwer.text ?? ""
+        if let lastChar = fullOpp.last, "+-×÷".contains(lastChar) {
+            fullOpp += lastTappedNumber
+        } else {
+            fullOpp += lastTappedNumber
+        }
+
         print("Full Operation: \(fullOpp ?? "")")
-        
         if let result = evaluateMathExpression(expression: fullOpp) {
-            if result.truncatingRemainder(dividingBy: 1) == 0 {
-                numberViwer.text = "\(Int(result))"
-            } else {
-                numberViwer.text = "\(result)"
-            }
+            numberViwer.text = "\(result)"
             isResultShown = true
         } else {
             numberViwer.text = "Error"
             isResultShown = true
         }
-        
         fullOpp = ""
     }
 
-    
     func evaluateMathExpression(expression: String) -> Double? {
         let modifiedExpression = expression.replacingOccurrences(of: "÷", with: "/")
                                             .replacingOccurrences(of: "×", with: "*")
-        
+
         let exp = NSExpression(format: modifiedExpression)
-        
-        if let result = exp.expressionValue(with: nil, context: nil) as? Double {
-            return result
+
+        if let result = exp.expressionValue(with: nil, context: nil) as? NSNumber {
+            return result.doubleValue
         }
-        
+
         return nil
     }
 }
+
